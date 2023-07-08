@@ -1,1 +1,19 @@
+def caesar_cipher(text, key):
+    encrypted_text = ""
+    for char in text:
+        if char.isalpha():
+            if char.isupper():
+                encrypted_char = chr((ord(char) - 65 + key) % 26 + 65)
+            else:
+                encrypted_char = chr((ord(char) - 97 + key) % 26 + 97)
+            encrypted_text += encrypted_char
+        else:
+            encrypted_text += char
+    return encrypted_text
+
+input_text = input("Enter the text to encrypt: ")
+encryption_key = int(input("Enter the encryption key (an integer): "))
+
+encrypted_text = caesar_cipher(input_text, encryption_key)
+print("Encrypted text:", encrypted_text)
 
